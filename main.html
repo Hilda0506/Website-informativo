@@ -4,20 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HGC Informativo</title>
+  <!-- Fuente moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-light: #cfe8ff;
-      --primary-dark: #1e3a8a;
-      --primary: #3b82f6;
-      --text-light: #000;
-      --text-dark: #fff;
-      --bg-light: #fff;
+      --blue-light: #e0f2fe;
+      --blue: #2563eb;
+      --blue-dark: #1e3a8a;
+      --text-light: #1e293b;
+      --text-dark: #f1f5f9;
+      --bg-light: #ffffff;
       --bg-dark: #0f172a;
     }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: 'Montserrat', sans-serif;
       background: var(--bg-light);
       color: var(--text-light);
       transition: all 0.3s ease;
@@ -26,41 +27,49 @@
       background: var(--bg-dark);
       color: var(--text-dark);
     }
+
+    /* HEADER */
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: var(--primary);
-      padding: 10px 20px;
+      padding: 15px 40px;
+      background: linear-gradient(90deg, var(--blue) 0%, var(--blue-dark) 100%);
+      color: white;
     }
     header img {
-      height: 60px;
+      height: 55px;
       cursor: pointer;
     }
     nav a {
       margin: 0 15px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
       color: white;
+      transition: opacity 0.3s;
     }
     nav a:hover {
-      text-decoration: underline;
+      opacity: 0.8;
     }
-    .controls {
-      display: flex;
-      gap: 10px;
-    }
-    .btn {
-      background: var(--primary-dark);
-      color: white;
+    .controls button {
+      margin-left: 10px;
+      padding: 6px 12px;
       border: none;
-      padding: 5px 10px;
-      cursor: pointer;
       border-radius: 5px;
+      background: white;
+      color: var(--blue-dark);
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
     }
+    .controls button:hover {
+      background: var(--blue-light);
+    }
+
+    /* MAIN */
     main {
-      padding: 30px;
-      max-width: 1000px;
+      padding: 40px 20px;
+      max-width: 1200px;
       margin: auto;
     }
     section {
@@ -71,15 +80,36 @@
       display: block;
     }
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
+
+    h1, h2, h3 {
+      font-weight: 800;
+      color: var(--blue-dark);
+    }
+    body.dark h1, body.dark h2, body.dark h3 {
+      color: #93c5fd;
+    }
+
+    .card {
+      background: var(--blue-light);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    body.dark .card {
+      background: #1e293b;
+    }
+
+    /* FOOTER */
     footer {
-      background: var(--primary-dark);
+      background: var(--blue-dark);
       color: white;
       text-align: center;
-      padding: 20px;
-      margin-top: 40px;
+      padding: 30px 20px;
+      margin-top: 50px;
     }
     footer a {
       color: #93c5fd;
@@ -99,48 +129,55 @@
       <a href="#" onclick="showPage('politicas')">Políticas</a>
     </nav>
     <div class="controls">
-      <button class="btn" onclick="toggleMode()">🌙/☀️</button>
-      <button class="btn" onclick="toggleLanguage()">ES/EN</button>
+      <button onclick="toggleMode()">🌙/☀️</button>
+      <button onclick="toggleLanguage()">ES/EN</button>
     </div>
   </header>
 
   <main>
     <!-- HOME -->
     <section id="home" class="active">
-      <h1 style="font-family: 'Georgia', serif; font-size: 2.5em;">HGC Informativo</h1>
-      <p data-es="Bienvenidos a HGC Services Corp, su oficina de servicios administrativos en Florida."
-         data-en="Welcome to HGC Services Corp, your administrative services office in Florida."></p>
-      <img src="HGC Logo.png" alt="HGC Logo" style="opacity:0.1; width:100%; margin-top:20px;">
+      <h1>HGC Informativo</h1>
+      <div class="card">
+        <p data-es="Bienvenidos a HGC Services Corp, su oficina de servicios administrativos en Florida."
+           data-en="Welcome to HGC Services Corp, your administrative services office in Florida."></p>
+      </div>
+      <img src="HGC Logo.png" alt="HGC Logo" style="opacity:0.08; width:100%; margin-top:30px;">
     </section>
 
     <!-- INFORMATIVE -->
     <section id="informativo">
       <h2 data-es="¿Quiénes Somos?" data-en="Who We Are"></h2>
-      <p data-es="HGC es una oficina de servicios administrativos que trabaja con transparencia, responsabilidad y apego a la ley. No somos abogados ni brindamos asesoría legal, pero apoyamos a nuestros clientes en la gestión documental y en trámites administrativos de manera clara y segura."
-         data-en="HGC is an administrative services office that works with transparency, responsibility, and compliance with the law. We are not attorneys and do not provide legal advice, but we support clients with documentation and administrative procedures clearly and securely."></p>
-
+      <div class="card">
+        <p data-es="HGC es una oficina de servicios administrativos que trabaja con transparencia, responsabilidad y apego a la ley. No somos abogados ni brindamos asesoría legal, pero apoyamos a nuestros clientes en la gestión documental y en trámites administrativos de manera clara y segura."
+           data-en="HGC is an administrative services office that works with transparency, responsibility, and compliance with the law. We are not attorneys and do not provide legal advice, but we support clients with documentation and administrative procedures clearly and securely."></p>
+      </div>
       <h3 data-es="Aviso Legal" data-en="Legal Notice"></h3>
-      <p data-es="NO SOY ABOGADO LICENCIADO PARA EJERCER DERECHO. NO PUEDO DAR CONSEJOS LEGALES NI ACEPTAR HONORARIOS POR CONSEJOS LEGALES. NO ESTOY ACREDITADO PARA REPRESENTARLE EN ASUNTOS DE INMIGRACIÓN."
-         data-en="I AM NOT AN ATTORNEY LICENSED TO PRACTICE LAW. I MAY NOT GIVE LEGAL ADVICE OR ACCEPT FEES FOR LEGAL ADVICE. I AM NOT ACCREDITED TO REPRESENT YOU IN IMMIGRATION MATTERS."></p>
+      <div class="card">
+        <p data-es="NO SOY ABOGADO LICENCIADO PARA EJERCER DERECHO. NO PUEDO DAR CONSEJOS LEGALES NI ACEPTAR HONORARIOS POR CONSEJOS LEGALES. NO ESTOY ACREDITADO PARA REPRESENTARLE EN ASUNTOS DE INMIGRACIÓN."
+           data-en="I AM NOT AN ATTORNEY LICENSED TO PRACTICE LAW. I MAY NOT GIVE LEGAL ADVICE OR ACCEPT FEES FOR LEGAL ADVICE. I AM NOT ACCREDITED TO REPRESENT YOU IN IMMIGRATION MATTERS."></p>
+      </div>
     </section>
 
     <!-- POLITICAS -->
     <section id="politicas">
       <h2 data-es="Nuestras Políticas" data-en="Our Policies"></h2>
-      <ul>
-        <li data-es="Comunicación: Todos los clientes deben mantener comunicación activa vía correo electrónico."
-            data-en="Communication: All clients must maintain active communication via email."></li>
-        <li data-es="Entrega de Documentos: Solo mediante mensajería certificada (UPS o equivalente)."
-            data-en="Delivery of Documents: Only via certified courier (UPS or equivalent)."></li>
-        <li data-es="Custodia de Documentos: No retenemos documentos migratorios ni personales."
-            data-en="Document Custody: We do not retain immigration or personal documents."></li>
-        <li data-es="Trato al Cliente: Respeto, dignidad y sin discriminación."
-            data-en="Client Treatment: Respect, dignity, and non-discrimination."></li>
-        <li data-es="Honorarios: Se cobran conforme a la ley del Estado de Florida."
-            data-en="Fees: Charged in accordance with Florida State law."></li>
-        <li data-es="Seguridad: Información manejada con total confidencialidad."
-            data-en="Security: Information handled with full confidentiality."></li>
-      </ul>
+      <div class="card">
+        <ul>
+          <li data-es="Comunicación: Todos los clientes deben mantener comunicación activa vía correo electrónico."
+              data-en="Communication: All clients must maintain active communication via email."></li>
+          <li data-es="Entrega de Documentos: Solo mediante mensajería certificada (UPS o equivalente)."
+              data-en="Delivery of Documents: Only via certified courier (UPS or equivalent)."></li>
+          <li data-es="Custodia de Documentos: No retenemos documentos migratorios ni personales."
+              data-en="Document Custody: We do not retain immigration or personal documents."></li>
+          <li data-es="Trato al Cliente: Respeto, dignidad y sin discriminación."
+              data-en="Client Treatment: Respect, dignity, and non-discrimination."></li>
+          <li data-es="Honorarios: Se cobran conforme a la ley del Estado de Florida."
+              data-en="Fees: Charged in accordance with Florida State law."></li>
+          <li data-es="Seguridad: Información manejada con total confidencialidad."
+              data-en="Security: Information handled with full confidentiality."></li>
+        </ul>
+      </div>
     </section>
   </main>
 
@@ -166,8 +203,8 @@
         el.textContent = el.getAttribute("data-" + lang);
       });
     }
-    toggleLanguage(); // inicia en español
-    toggleLanguage(); // regresa para asegurar ES por defecto
+    toggleLanguage(); // set default ES
+    toggleLanguage(); 
   </script>
 </body>
 </html>
