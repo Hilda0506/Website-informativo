@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HGC Informativo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <a href="#home">
+      <img src="logo.png" alt="HGC Logo" class="logo">
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#home">Inicio</a></li>
+        <li><a href="#informativo">Informativo</a></li>
+        <li><a href="#politicas">Políticas</a></li>
+        <li><a href="#mision">Misión & Visión</a></li>
+        <li><a href="#contacto">Contáctenos</a></li>
+      </ul>
+    </nav>
+    <div class="controls">
+      <button class="btn-mode" onclick="toggleMode()">🌙 / ☀️</button>
+      <button class="btn-lang" onclick="toggleLang()">ES/EN</button>
+    </div>
+  </header>
+
+  <!-- Marca de agua futurista -->
+  <div class="watermark">
+    <img src="logo.png" alt="Marca de agua HGC">
+  </div>
+
+  <main>
+    <!-- Home -->
+    <section id="home" class="card">
+      <h2>Bienvenido a HGC Informativo</h2>
+      <p>Oficina de servicios administrativos comprometida con la transparencia, el respeto y la legalidad.</p>
+    </section>
+
+    <!-- Informativo -->
+    <section id="informativo" class="card">
+      <h2>Página Informativa – HGC</h2>
+      <h3>¿Quiénes Somos?</h3>
+      <p>HGC es una oficina de servicios administrativos que trabaja con transparencia, responsabilidad y apego a la ley.
+      No somos abogados ni brindamos asesoría legal, pero apoyamos a nuestros clientes en la gestión documental y en trámites administrativos de manera clara y segura.</p>
+
+      <h3>Aviso Legal</h3>
+      <blockquote>
+        I AM NOT AN ATTORNEY LICENSED TO PRACTICE LAW.<br>
+        I MAY NOT GIVE LEGAL ADVICE OR ACCEPT FEES FOR LEGAL ADVICE.<br>
+        I AM NOT ACCREDITED TO REPRESENT YOU IN IMMIGRATION MATTERS.
+      </blockquote>
+    </section>
+
+    <!-- Políticas -->
+    <section id="politicas" class="card">
+      <h2>Nuestras Políticas</h2>
+      <ul>
+        <li><strong>Transparencia y Legalidad:</strong> HGC siempre actúa conforme a la ley de Florida, incluyendo el Capítulo 117 – Notaries Public. No brindamos asesoría legal ni representación migratoria. Todos los servicios se documentan y se entregan recibos claros.:contentReference[oaicite:2]{index=2}</li>
+        <li><strong>Entrega y Custodia de Documentos:</strong> Los documentos se entregan solo a su dueño legítimo. No retenemos documentos migratorios o personales una vez entregados. El cliente puede solicitar copias en cualquier momento.:contentReference[oaicite:3]{index=3}</li>
+        <li><strong>Comunicación:</strong> Los clientes deben mantener comunicación activa vía email. Los documentos físicos se envían únicamente por mensajería certificada (UPS o equivalente).:contentReference[oaicite:4]{index=4}</li>
+        <li><strong>Trato al Cliente:</strong> Atendemos a todos con respeto y sin discriminación por raza, religión, sexo, edad, discapacidad o estatus migratorio.:contentReference[oaicite:5]{index=5}</li>
+        <li><strong>Honorarios:</strong> Se cobran conforme a la ley del Estado de Florida y se emite comprobante por cada gestión.:contentReference[oaicite:6]{index=6}</li>
+        <li><strong>Seguridad y Confidencialidad:</strong> La información se maneja con reserva absoluta. La oficina cuenta con cámaras de seguridad.:contentReference[oaicite:7]{index=7}</li>
+        <li><strong>Protección Contra Amenazas:</strong> Amparados por la ley de Florida y la Constitución de EE.UU. (extorsión, amenazas, acoso).:contentReference[oaicite:8]{index=8}:contentReference[oaicite:9]{index=9}</li>
+      </ul>
+    </section>
+
+    <!-- Misión & Visión -->
+    <section id="mision" class="card">
+      <h2>Misión – HGC</h2>
+      <p>Brindar servicios administrativos y notariales con total transparencia, respeto a la ley del Estado de Florida y apego a la ética profesional, garantizando seguridad y protección de los derechos de nuestros clientes.</p>
+
+      <h2>Visión – HGC</h2>
+      <p>Consolidarnos como una oficina de referencia en Florida, destacando por nuestro compromiso con la legalidad, la confidencialidad y la protección del cliente, ofreciendo un servicio confiable y accesible.</p>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="card">
+      <h2>Contáctenos</h2>
+      <p><strong>📧 Correo electrónico:</strong> <a href="mailto:serviceshilda@gmail.com">serviceshilda@gmail.com</a></p>
+      <p><strong>📱 Teléfono:</strong> <a href="tel:+17868731859">786 873 1859</a></p>
+      <p><strong>📍 Dirección:</strong> 1651 W 37th St, Unidad 410, Hialeah, FL 33012</p>
+      <p><strong>📷 Instagram:</strong> <a href="https://instagram.com/serviceshilda" target="_blank">@serviceshilda</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> HGC Informativo</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
