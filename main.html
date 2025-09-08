@@ -1,267 +1,186 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HGC Informativo</title>
-
-  <!-- Fuentes -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
   <style>
+    /* --------- FUENTES Y ESTILOS BASE --------- */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
     :root {
-      --text: #0f172a;
-      --muted: #475569;
-      --accent: #2563eb;
-      --bg-card: #ffffff;
-      --shadow: 0 6px 20px rgba(0,0,0,0.08);
-    }
-    body.dark {
-      --text: #f8fafc;
-      --muted: #cbd5e1;
-      --bg-card: rgba(17,25,40,0.7);
-      --shadow: 0 6px 24px rgba(0,0,0,0.5);
+      --primary-light: #e6f0ff;
+      --primary-blue: #1e90ff;
+      --primary-dark: #0a1f44;
+      --text-light: #000;
+      --text-dark: #fff;
+      --bg-light: #fff;
+      --bg-dark: #121212;
     }
 
     body {
+      font-family: 'Poppins', sans-serif;
       margin: 0;
-      font-family: "Montserrat", sans-serif;
-      background: #f9fafb;
-      color: var(--text);
-      line-height: 1.6;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-    body.dark {
-      background: linear-gradient(180deg, #0f172a, #1e293b);
+      background: var(--bg-light);
+      color: var(--text-light);
+      transition: all 0.4s ease;
     }
 
-    /* Header */
+    body.dark {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
     header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(90deg, var(--primary-blue), var(--primary-dark));
+      padding: 15px 30px;
       position: sticky;
       top: 0;
-      z-index: 10;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 28px;
-      background: #ffffffee;
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #e5e7eb;
+      z-index: 1000;
     }
-    body.dark header {
-      background: rgba(17,25,40,0.85);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    header img {
+      height: 50px;
+      cursor: pointer;
     }
-    .brand h1 {
-      margin: 0;
-      font-family: "Playfair Display", serif;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-    nav {
-      display: flex;
-      gap: 18px;
-    }
+
     nav a {
-      color: var(--text);
+      margin: 0 15px;
       text-decoration: none;
+      color: #fff;
       font-weight: 600;
-      padding: 6px 10px;
-      border-radius: 6px;
-      transition: background 0.25s;
+      transition: 0.3s;
     }
+
     nav a:hover {
-      background: rgba(37,99,235,0.1);
+      color: var(--primary-light);
     }
 
     .controls {
       display: flex;
-      gap: 8px;
+      gap: 10px;
     }
-    .btn {
+
+    button {
       border: none;
       padding: 8px 12px;
       border-radius: 8px;
-      font-weight: 700;
       cursor: pointer;
-      background: var(--accent);
-      color: #fff;
-      transition: transform 0.2s;
-    }
-    .btn:hover { transform: translateY(-2px); }
-
-    /* Main */
-    main {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 0 20px 60px;
+      font-weight: bold;
     }
 
-    /* Hero */
-    .hero {
+    .toggle-mode {
+      background: var(--primary-blue);
+      color: white;
+    }
+
+    .toggle-lang {
+      background: var(--primary-dark);
+      color: white;
+    }
+
+    section {
+      padding: 60px 20px;
       text-align: center;
-      margin-bottom: 40px;
-    }
-    .hero h2 {
-      font-size: 2.2rem;
-      font-family: "Playfair Display", serif;
-      margin: 0 0 10px;
-      color: var(--accent);
-    }
-    .hero p {
-      color: var(--muted);
-      max-width: 700px;
-      margin: 0 auto;
+      animation: fadeIn 1.2s ease-in-out;
     }
 
-    /* Cards */
-    section.card {
-      background: var(--bg-card);
-      border-radius: 12px;
-      padding: 24px;
-      margin: 24px 0;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    section.card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(37,99,235,0.2);
+    h1 {
+      font-size: 2.5rem;
+      color: var(--primary-blue);
     }
 
-    .muted { color: var(--muted); }
-    .legal-block {
-      border-left: 4px solid var(--accent);
-      padding-left: 14px;
-      margin-top: 12px;
-    }
-
-    /* Footer */
     footer {
-      background: var(--accent);
-      color: #fff;
+      background: linear-gradient(90deg, var(--primary-dark), var(--primary-blue));
+      color: white;
       text-align: center;
-      padding: 40px 20px;
-      margin-top: 40px;
+      padding: 30px 20px;
     }
+
     footer a {
-      color: #f1f5f9;
+      color: #fff;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: bold;
     }
 
-    /* Idioma */
-    .lang { display: none; }
-    .lang.active { display: block; }
-
-    @media (max-width:700px) { nav { display: none; } }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
   </style>
 </head>
 <body>
+  <!-- HEADER -->
   <header>
-    <a class="brand" onclick="showPage('home')">
-      <h1>HGC Informativo</h1>
-    </a>
+    <img src="logo.png" alt="HGC Logo" onclick="showSection('home')">
     <nav>
-      <a href="#" onclick="showPage('home')">Home</a>
-      <a href="#" onclick="showPage('informativo')">Informativo</a>
-      <a href="#" onclick="showPage('politicas')">Políticas</a>
+      <a href="#" onclick="showSection('home')">Home</a>
+      <a href="#" onclick="showSection('info')">Informativo</a>
+      <a href="#" onclick="showSection('policies')">Políticas</a>
     </nav>
     <div class="controls">
-      <button class="btn" id="modeBtn" onclick="toggleMode()">🌙</button>
-      <button class="btn" id="langBtn" onclick="toggleLanguage()">ES / EN</button>
+      <button class="toggle-mode" onclick="toggleMode()">🌙/☀️</button>
+      <button class="toggle-lang" onclick="toggleLang()">ES/EN</button>
     </div>
   </header>
 
-  <main>
-    <!-- Hero -->
-    <section id="home" class="hero">
-      <h2>
-        <span class="lang es active">Bienvenidos a HGC Informativo</span>
-        <span class="lang en">Welcome to HGC Informative</span>
-      </h2>
-      <p>
-        <span class="lang es active">Oficina de servicios administrativos en Florida — compromiso con transparencia y legalidad.</span>
-        <span class="lang en">Administrative services office in Florida — committed to transparency and legality.</span>
-      </p>
-    </section>
+  <!-- SECCIONES -->
+  <section id="home">
+    <h1 data-es="Bienvenidos a HGC Informativo" data-en="Welcome to HGC Informativo"></h1>
+    <p data-es="Ofrecemos servicios administrativos y notariales con transparencia y confianza." 
+       data-en="We provide administrative and notary services with transparency and trust."></p>
+    <img src="banner.jpg" alt="Banner" style="width:80%; border-radius:20px; margin-top:20px; opacity:0.9;">
+  </section>
 
-    <!-- Informativo -->
-    <section id="informativo" class="card" style="display:none;">
-      <div class="lang es active">
-        <h3>¿Quiénes Somos?</h3>
-        <p class="muted">
-          HGC es una oficina de servicios administrativos que trabaja con transparencia, responsabilidad y apego a la ley. No somos abogados ni brindamos asesoría legal, pero apoyamos a nuestros clientes en la gestión documental y en trámites administrativos de manera clara y segura.
-        </p>
-        <div class="legal-block">
-          <strong>Aviso Legal:</strong>
-          <p class="muted"><em>NO SOY ABOGADO LICENCIADO PARA EJERCER DERECHO...</em></p>
-        </div>
-      </div>
-      <div class="lang en">
-        <h3>Who We Are</h3>
-        <p class="muted">
-          HGC is an administrative services office acting with transparency, responsibility and compliance with the law. We are not attorneys and do not provide legal advice, but we support clients with documentation and administrative procedures clearly and securely.
-        </p>
-        <div class="legal-block">
-          <strong>Legal Notice:</strong>
-          <p class="muted"><em>I AM NOT AN ATTORNEY LICENSED TO PRACTICE LAW...</em></p>
-        </div>
-      </div>
-    </section>
+  <section id="info" style="display:none;">
+    <h1 data-es="Página Informativa – HGC" data-en="Informative Page – HGC"></h1>
+    <p data-es="¿Quiénes Somos? HGC es una oficina de servicios administrativos..." 
+       data-en="Who are we? HGC is an administrative services office..."></p>
+    <!-- Aquí va todo el texto largo (Misión, Visión, Políticas, Avisos) -->
+  </section>
 
-    <!-- Políticas -->
-    <section id="politicas" class="card" style="display:none;">
-      <div class="lang es active">
-        <h3>Office Policies – HGC</h3>
-        <p class="muted">Transparencia, legalidad, comunicación y trato respetuoso con todos nuestros clientes.</p>
-      </div>
-      <div class="lang en">
-        <h3>Office Policies – HGC</h3>
-        <p class="muted">Transparency, legality, communication and respectful treatment with all our clients.</p>
-      </div>
-    </section>
-  </main>
+  <section id="policies" style="display:none;">
+    <h1 data-es="Nuestras Políticas" data-en="Our Policies"></h1>
+    <p data-es="Comunicación, entrega de documentos, trato al cliente..." 
+       data-en="Communication, document delivery, customer service..."></p>
+    <!-- Aquí agregamos todo el contenido detallado de las políticas -->
+  </section>
 
+  <!-- FOOTER -->
   <footer>
-    <div>
-      <div><strong>📧</strong> <a href="mailto:serviceshilda@gmail.com">serviceshilda@gmail.com</a></div>
-      <div><strong>📞</strong> <a href="tel:+17868731859">786 873 1859</a></div>
-      <div><strong>📍</strong> 1651 W 37th St, Unidad 410, Hialeah FL 33012</div>
-      <div style="margin-top:10px;"><a href="https://instagram.com/serviceshilda" target="_blank">@serviceshilda</a></div>
-    </div>
-    <div style="margin-top:14px; font-size:.85rem;">© HGC Services Corp — Todos los derechos reservados.</div>
+    <p><strong>📱 Instagram:</strong> <a href="https://instagram.com/serviceshilda">@serviceshilda</a></p>
+    <p><strong>📧 Email:</strong> serviceshilda@gmail.com</p>
+    <p><strong>📞 Teléfono:</strong> 7868731859</p>
+    <p><strong>📍 Dirección:</strong> 1651 W 37th St Unidad 410 Hialeah, FL 33012</p>
+    <p>© 2025 HGC Informativo - Todos los derechos reservados</p>
   </footer>
 
   <script>
-    function showPage(id){
-      document.querySelectorAll('main > section').forEach(s=>s.style.display='none');
-      document.getElementById(id).style.display='block';
-      history.replaceState(null,'','#'+id);
+    let darkMode = false;
+    let lang = "es";
+
+    function toggleMode() {
+      document.body.classList.toggle("dark");
+      darkMode = !darkMode;
     }
-    function toggleMode(){
-      document.body.classList.toggle('dark');
-      const isDark = document.body.classList.contains('dark');
-      document.getElementById('modeBtn').textContent = isDark ? '☀️' : '🌙';
-      localStorage.setItem('mode', isDark?'dark':'light');
-    }
-    if(localStorage.getItem('mode')==='dark'){
-      document.body.classList.add('dark');
-      document.getElementById('modeBtn').textContent='☀️';
-    }
-    function setLanguage(lang){
-      document.querySelectorAll('.lang').forEach(el=>{
-        el.style.display = el.classList.contains(lang)?'block':'none';
+
+    function toggleLang() {
+      lang = (lang === "es") ? "en" : "es";
+      document.querySelectorAll("[data-es]").forEach(el => {
+        el.textContent = el.getAttribute(`data-${lang}`);
       });
-      localStorage.setItem('lang', lang);
     }
-    function toggleLanguage(){
-      const current = localStorage.getItem('lang')||'es';
-      setLanguage(current==='es'?'en':'es');
+
+    function showSection(id) {
+      document.querySelectorAll("section").forEach(sec => sec.style.display = "none");
+      document.getElementById(id).style.display = "block";
     }
-    setLanguage(localStorage.getItem('lang')||'es');
-    const hash = window.location.hash.replace('#','');
-    showPage(hash||'home');
+
+    // Inicializar idioma por defecto
+    toggleLang(); toggleLang();
   </script>
 </body>
 </html>
