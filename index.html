@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sitio Informativo</title>
+  <meta name="description" content="Website informativo con colores azules profesionales." />
+
+  <style>
+    :root{
+      --bg:#f8fbff;          /* azul muy claro */
+      --card:#ffffff;        /* blanco */
+      --accent:#1e3a8a;      /* azul oscuro elegante */
+      --accent-light:#3b82f6;/* azul claro */
+      --muted:#475569;
+      --text:#0f172a;
+      --radius:14px;
+      --max-width:1100px;
+      --gap:1.25rem;
+      --shadow: 0 6px 18px rgba(30,58,138,0.15);
+      font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    }
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    .container{
+      width:clamp(300px,92%,var(--max-width));
+      margin:0 auto;
+      padding:1.25rem;
+    }
+    header{
+      background:linear-gradient(90deg,var(--accent),var(--accent-light));
+      color:white;
+      position:sticky;top:0;
+      z-index:50;
+      box-shadow:var(--shadow);
+    }
+    .nav{
+      display:flex;justify-content:space-between;align-items:center;
+    }
+    nav ul{list-style:none;display:flex;gap:1rem;margin:0;padding:0}
+    nav a{color:white;text-decoration:none;font-weight:600}
+    nav a:hover{text-decoration:underline}
+    h1,h2,h3{color:var(--accent)}
+    .hero{
+      text-align:center;
+      padding:3rem 1rem;
+      background:linear-gradient(180deg,var(--accent-light),var(--bg));
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      margin-top:1.5rem;
+    }
+    .btn{
+      display:inline-block;
+      background:var(--accent);
+      color:white;
+      padding:0.8rem 1.2rem;
+      border-radius:var(--radius);
+      text-decoration:none;
+      font-weight:700;
+      box-shadow:var(--shadow);
+    }
+    .btn:hover{background:var(--accent-light)}
+    .card{
+      background:var(--card);
+      padding:1.2rem;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      margin-top:1rem;
+    }
+    footer{
+      margin-top:2rem;
+      padding:1rem;
+      text-align:center;
+      background:var(--accent);
+      color:white;
+      border-top:4px solid var(--accent-light);
+    }
+    /* QR section */
+    .qr{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      margin-top:2rem;
+    }
+    .qr img{
+      width:180px;
+      height:180px;
+      border:6px solid white;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      background:white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <h2>Mi Sitio Azul</h2>
+      <nav>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#info">Información</a></li>
+          <li><a href="#qr">QR</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="inicio" class="container hero">
+      <h1>Bienvenido a mi Website Informativo</h1>
+      <p>Aquí encontrarás información clara y accesible para todos.</p>
+      <a href="#info" class="btn">Saber más</a>
+    </section>
+
+    <section id="info" class="container">
+      <h2>Información principal</h2>
+      <div class="card">
+        <p>Este espacio lo puedes usar para poner tus datos, servicios, noticias o cualquier información que quieras compartir.  
+        Todo con un diseño limpio en tonos azules profesionales.</p>
+      </div>
+    </section>
+
+    <section id="qr" class="container qr">
+      <h2>Escanea nuestro QR</h2>
+      <p>Con tu celular puedes escanear este código y acceder fácilmente al contenido.</p>
+      <!-- Reemplaza "qr.png" por tu imagen QR -->
+      <img src="qr.png" alt="Código QR de acceso">
+    </section>
+
+    <section id="contacto" class="container">
+      <h2>Contacto</h2>
+      <div class="card">
+        <p><strong>Email:</strong> info@misitio.com</p>
+        <p><strong>Teléfono:</strong> +1 (555) 123-4567</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Mi Sitio Azul — Todos los derechos reservados</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
