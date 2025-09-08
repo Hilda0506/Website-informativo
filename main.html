@@ -8,12 +8,12 @@
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 
     :root {
-      --blue: #4da6ff;     /* Azul clarito para light mode */
+      --blue: #4da6ff;   /* Azul clarito para light mode */
       --blue-dark: #0a1f44;
       --bg-light: #ffffff;
-      --bg-dark: #121212;
+      --bg-dark: #1b1f2f; /* Azul gris oscuro elegante */
       --text-light: #000000;
-      --text-dark: #ffffff;
+      --text-dark: #e6e6e6;
     }
 
     body {
@@ -24,13 +24,12 @@
       transition: background 0.4s, color 0.4s;
     }
 
-    /* -------- DARK MODE -------- */
+    /* DARK MODE */
     body.dark {
       background: var(--bg-dark);
       color: var(--text-dark);
 
-      /* Azul más oscuro en dark mode */
-      --blue: #0055cc;
+      --blue: #003c99;     /* Azul profundo en dark mode */
       --blue-dark: #001a33;
     }
 
@@ -44,7 +43,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
       transition: background 0.4s;
     }
 
@@ -63,7 +62,7 @@
     }
 
     nav a:hover {
-      color: var(--blue-light);
+      color: #dce9ff;
     }
 
     .controls button {
@@ -88,7 +87,7 @@
 
     section {
       padding: 60px 20px;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
       animation: fadeIn 1s ease;
     }
@@ -107,8 +106,12 @@
     ul {
       text-align: left;
       margin: 20px auto;
-      max-width: 800px;
+      max-width: 900px;
       padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 12px;
     }
 
     footer {
@@ -169,36 +172,69 @@
        data-en="To become a reference office in Florida for our commitment to legality, confidentiality, and client protection."></p>
   </section>
 
-  <!-- POLÍTICAS -->
+  <!-- POLÍTICAS (texto exacto que me diste) -->
   <section id="policies" style="display:none;">
     <h2>📌 Office Policies – HGC</h2>
-    <ul>
-      <li><b>Transparency and Legality</b>: HGC acts in accordance with Florida law, including Chapter 117 Florida Statutes – Notaries Public. No legal advice or immigration representation is provided.</li>
-      <li><b>Delivery and Custody of Documents</b>: Documents are only delivered to their rightful owner. No retention of immigration or personal documents once processed.</li>
-      <li><b>Client Communication</b>: Active email communication required. Physical documents only sent via certified courier (UPS or equivalent).</li>
-      <li><b>Customer Service and Non-Discrimination</b>: All clients are treated respectfully, without discrimination.</li>
-      <li><b>Fees and Charges</b>: Fees follow Florida law. Receipts are issued for every service.</li>
-      <li><b>Security and Confidentiality</b>: All information is handled with confidentiality. Office has security cameras. Threats or violence are not tolerated.</li>
-      <li><b>Protection Against Threats</b>: Protected under Florida Statutes §836.05 – Extortion/Threats.</li>
-    </ul>
+    <p>1. Transparency and Legality<br>
+    - HGC always acts in accordance with the laws of the State of Florida, including Chapter 117 Florida Statutes – Notaries Public.<br>
+    - Legal advice or immigration representation is not provided, as established by law.<br>
+    - All services are carried out transparently, with written records and clear receipts of the processes performed.</p>
 
-    <h2>📌 Legal Notice</h2>
-    <p><b>Important:</b> I AM NOT AN ATTORNEY LICENSED TO PRACTICE LAW. I MAY NOT GIVE LEGAL ADVICE OR ACCEPT FEES FOR LEGAL ADVICE. I AM NOT ACCREDITED TO REPRESENT YOU IN IMMIGRATION MATTERS.</p>
+    <p>2. Delivery and Custody of Documents<br>
+    - All documents received will be delivered only to their rightful owner.<br>
+    - The office does not retain immigration or personal documents once they have been processed.<br>
+    - Upon request, clients may receive copies of the delivered documents for their records.<br>
+    - An administrative control file may be maintained only for administrative purposes and does not constitute undue retention.</p>
 
-    <h2>📌 Legal Protection</h2>
-    <p>This office is protected under Florida Statutes Chapter 117 (Notaries Public), §836.05 (Extortion/Threats), §784.048 (Stalking/Harassment), and the U.S. Constitution (First Amendment & Due Process).</p>
+    <p>3. Client Communication<br>
+    - All clients must maintain active communication via email during ongoing processes.<br>
+    - Physical documents will only be sent through certified courier services (UPS or equivalent).<br>
+    - The client is responsible for covering shipping and handling costs.<br>
+    - The office is not responsible for delays caused by third parties (postal or courier services).</p>
 
-    <h2>📌 Document Policy</h2>
-    <p>Documents are only delivered to their rightful owner. No retention of immigration or personal documents once processed. Copies may be requested at any time.</p>
+    <p>4. Customer Service and Non-Discrimination<br>
+    - This office maintains respectful, dignified, and professional treatment of all clients.<br>
+    - Discrimination is not permitted based on race, color, religion, sex, sexual orientation, nationality, age, disability, or immigration status.</p>
 
-    <h2>📌 Fees</h2>
-    <p>Notary services are charged according to Florida State law (fee schedule available upon request).</p>
+    <p>5. Fees and Charges<br>
+    - Notary fees will be charged in accordance with Florida State law.<br>
+    - Any additional services will be disclosed to the client before being provided.<br>
+    - A receipt will be issued for all services performed.</p>
 
-    <h2>📌 Equal Opportunity Commitment</h2>
-    <p>No discrimination based on race, color, religion, sex, national origin, age, disability, or immigration status.</p>
+    <p>6. Security and Confidentiality<br>
+    - All information and documents received are handled under strict confidentiality.<br>
+    - This office is equipped with security cameras for the protection of clients and staff.<br>
+    - Threats, intimidation, or acts of violence will not be tolerated.</p>
 
-    <h2>📌 Security</h2>
-    <p>The office is under video surveillance for the protection of clients and staff.</p>
+    <p>7. Protection Against Threats<br>
+    - The office is protected under:<br>
+    - Florida Statutes § 836.05 – Extortion/Threats</p>
+
+    <h2>📌 Legal Notice for Office Display</h2>
+    <h3>📌 Important</h3>
+    <p>I AM NOT AN ATTORNEY LICENSED TO PRACTICE LAW. I MAY NOT GIVE LEGAL ADVICE OR ACCEPT FEES FOR LEGAL ADVICE. I AM NOT ACCREDITED TO REPRESENT YOU IN IMMIGRATION MATTERS.</p>
+
+    <h3>📌 Legal Protection</h3>
+    <p>This office is protected under the following laws:<br>
+    - Florida Statutes Chapter 117 – Notaries Public (Regulation of notaries).<br>
+    - Florida Statutes § 836.05 – Extortion/Threats (Prohibits threats and extortion).<br>
+    - Florida Statutes § 784.048 – Stalking / Harassment (Covers harassment, stalking, and repeated threats, including electronic communications).<br>
+    - First Amendment & Due Process – U.S. Constitution (Protection against unfounded accusations and the right to due process).<br>
+    Any written threat, email, or message may be retained and used as legal evidence.</p>
+
+    <h3>📌 Document Policy</h3>
+    <p>- All documents received will be delivered only to their rightful owner.<br>
+    - This office does not retain immigration or personal documents once they have been notified to the client.<br>
+    - Clients may request a copy of delivered documents at any time.</p>
+
+    <h3>📌 Fees</h3>
+    <p>Notary services are charged in accordance with Florida State law. (Fee schedule available upon request).</p>
+
+    <h3>📌 Equal Opportunity Commitment</h3>
+    <p>This office does not discriminate on the basis of: race, color, religion, sex, national origin, age, disability, or immigration status.</p>
+
+    <h3>📌 Security</h3>
+    <p>This office is under video surveillance for the protection of clients and staff.</p>
   </section>
 
   <!-- FOOTER -->
