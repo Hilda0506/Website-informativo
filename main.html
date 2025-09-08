@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HGC Informativo</title>
+  <style>
+    :root {
+      --primary-light: #cfe8ff;
+      --primary-dark: #1e3a8a;
+      --primary: #3b82f6;
+      --text-light: #000;
+      --text-dark: #fff;
+      --bg-light: #fff;
+      --bg-dark: #0f172a;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg-light);
+      color: var(--text-light);
+      transition: all 0.3s ease;
+    }
+    body.dark {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--primary);
+      padding: 10px 20px;
+    }
+    header img {
+      height: 60px;
+      cursor: pointer;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      color: white;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .controls {
+      display: flex;
+      gap: 10px;
+    }
+    .btn {
+      background: var(--primary-dark);
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    main {
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section {
+      display: none;
+      animation: fadeIn 0.5s;
+    }
+    section.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    footer {
+      background: var(--primary-dark);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    footer a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="HGC Logo.png" alt="HGC Logo" onclick="showPage('home')">
+    <nav>
+      <a href="#" onclick="showPage('home')">Home</a>
+      <a href="#" onclick="showPage('informativo')">Informativo</a>
+      <a href="#" onclick="showPage('politicas')">Políticas</a>
+    </nav>
+    <div class="controls">
+      <button class="btn" onclick="toggleMode()">🌙/☀️</button>
+      <button class="btn" onclick="toggleLanguage()">ES/EN</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section id="home" class="active">
+      <h1 style="font-family: 'Georgia', serif; font-size: 2.5em;">HGC Informativo</h1>
+      <p data-es="Bienvenidos a HGC Services Corp, su oficina de servicios administrativos en Florida."
+         data-en="Welcome to HGC Services Corp, your administrative services office in Florida."></p>
+      <img src="HGC Logo.png" alt="HGC Logo" style="opacity:0.1; width:100%; margin-top:20px;">
+    </section>
+
+    <!-- INFORMATIVE -->
+    <section id="informativo">
+      <h2 data-es="¿Quiénes Somos?" data-en="Who We Are"></h2>
+      <p data-es="HGC es una oficina de servicios administrativos que trabaja con transparencia, responsabilidad y apego a la ley. No somos abogados ni brindamos asesoría legal, pero apoyamos a nuestros clientes en la gestión documental y en trámites administrativos de manera clara y segura."
+         data-en="HGC is an administrative services office that works with transparency, responsibility, and compliance with the law. We are not attorneys and do not provide legal advice, but we support clients with documentation and administrative procedures clearly and securely."></p>
+
+      <h3 data-es="Aviso Legal" data-en="Legal Notice"></h3>
+      <p data-es="NO SOY ABOGADO LICENCIADO PARA EJERCER DERECHO. NO PUEDO DAR CONSEJOS LEGALES NI ACEPTAR HONORARIOS POR CONSEJOS LEGALES. NO ESTOY ACREDITADO PARA REPRESENTARLE EN ASUNTOS DE INMIGRACIÓN."
+         data-en="I AM NOT AN ATTORNEY LICENSED TO PRACTICE LAW. I MAY NOT GIVE LEGAL ADVICE OR ACCEPT FEES FOR LEGAL ADVICE. I AM NOT ACCREDITED TO REPRESENT YOU IN IMMIGRATION MATTERS."></p>
+    </section>
+
+    <!-- POLITICAS -->
+    <section id="politicas">
+      <h2 data-es="Nuestras Políticas" data-en="Our Policies"></h2>
+      <ul>
+        <li data-es="Comunicación: Todos los clientes deben mantener comunicación activa vía correo electrónico."
+            data-en="Communication: All clients must maintain active communication via email."></li>
+        <li data-es="Entrega de Documentos: Solo mediante mensajería certificada (UPS o equivalente)."
+            data-en="Delivery of Documents: Only via certified courier (UPS or equivalent)."></li>
+        <li data-es="Custodia de Documentos: No retenemos documentos migratorios ni personales."
+            data-en="Document Custody: We do not retain immigration or personal documents."></li>
+        <li data-es="Trato al Cliente: Respeto, dignidad y sin discriminación."
+            data-en="Client Treatment: Respect, dignity, and non-discrimination."></li>
+        <li data-es="Honorarios: Se cobran conforme a la ley del Estado de Florida."
+            data-en="Fees: Charged in accordance with Florida State law."></li>
+        <li data-es="Seguridad: Información manejada con total confidencialidad."
+            data-en="Security: Information handled with full confidentiality."></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>📱 Instagram: <a href="https://instagram.com/serviceshilda" target="_blank">@serviceshilda</a></p>
+    <p>📞 Tel: 786 873 1859</p>
+    <p>✉️ Email: <a href="mailto:serviceshilda@gmail.com">serviceshilda@gmail.com</a></p>
+    <p>📍 Dirección: 1651 W 37th St, Unidad 410, Hialeah FL 33012</p>
+  </footer>
+
+  <script>
+    function showPage(id) {
+      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+    }
+    function toggleMode() {
+      document.body.classList.toggle("dark");
+    }
+    let lang = "es";
+    function toggleLanguage() {
+      lang = (lang === "es") ? "en" : "es";
+      document.querySelectorAll("[data-es]").forEach(el => {
+        el.textContent = el.getAttribute("data-" + lang);
+      });
+    }
+    toggleLanguage(); // inicia en español
+    toggleLanguage(); // regresa para asegurar ES por defecto
+  </script>
+</body>
+</html>
