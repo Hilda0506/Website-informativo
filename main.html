@@ -8,8 +8,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 
     :root {
-      --blue-light: #e6f0ff;
-      --blue: #1e90ff;
+      --blue: #4da6ff;     /* Azul clarito para light mode */
       --blue-dark: #0a1f44;
       --bg-light: #ffffff;
       --bg-dark: #121212;
@@ -25,9 +24,14 @@
       transition: background 0.4s, color 0.4s;
     }
 
+    /* -------- DARK MODE -------- */
     body.dark {
       background: var(--bg-dark);
       color: var(--text-dark);
+
+      /* Azul más oscuro en dark mode */
+      --blue: #0055cc;
+      --blue-dark: #001a33;
     }
 
     header {
@@ -41,6 +45,7 @@
       top: 0;
       z-index: 1000;
       box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      transition: background 0.4s;
     }
 
     header h1 {
@@ -68,7 +73,7 @@
       cursor: pointer;
       font-weight: bold;
       margin-left: 8px;
-      transition: 0.3s;
+      transition: background 0.4s;
     }
 
     .toggle-mode {
@@ -91,6 +96,7 @@
     h2 {
       color: var(--blue);
       margin-bottom: 20px;
+      transition: color 0.4s;
     }
 
     p {
@@ -111,6 +117,7 @@
       text-align: center;
       padding: 30px 20px;
       margin-top: 50px;
+      transition: background 0.4s;
     }
 
     footer a {
