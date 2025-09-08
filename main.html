@@ -9,59 +9,47 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* ======= Base colores ======= */
     :root {
-      --text: #0b1220;
+      --text: #0f172a;
       --muted: #475569;
-      --blue-light: #60a5fa;
-      --blue-dark: #1e3a8a;
-      --blue-mid: #2563eb;
-      --shadow: 0 8px 24px rgba(14,30,55,0.12);
+      --accent: #2563eb;
+      --bg-card: #ffffff;
+      --shadow: 0 6px 20px rgba(0,0,0,0.08);
     }
-
     body.dark {
-      --text: #f1f5f9;
+      --text: #f8fafc;
       --muted: #cbd5e1;
-      --shadow: 0 8px 30px rgba(0,0,0,0.6);
+      --bg-card: rgba(17,25,40,0.7);
+      --shadow: 0 6px 24px rgba(0,0,0,0.5);
     }
 
-    /* ======= Fondo animado ======= */
     body {
       margin: 0;
       font-family: "Montserrat", sans-serif;
+      background: #f9fafb;
       color: var(--text);
       line-height: 1.6;
-      transition: color 0.3s ease;
-      background: linear-gradient(-45deg, #e6f0ff, #bfdbfe, #93c5fd, #3b82f6);
-      background-size: 400% 400%;
-      animation: gradientMove 15s ease infinite;
+      transition: background 0.3s ease, color 0.3s ease;
     }
     body.dark {
-      background: linear-gradient(-45deg, #0f172a, #1e293b, #1e40af, #3b82f6);
-      background-size: 400% 400%;
-      animation: gradientMove 20s ease infinite;
-    }
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      background: linear-gradient(180deg, #0f172a, #1e293b);
     }
 
-    /* ======= Header ======= */
+    /* Header */
     header {
       position: sticky;
       top: 0;
-      z-index: 20;
+      z-index: 10;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 14px 28px;
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255,255,255,0.2);
+      background: #ffffffee;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e5e7eb;
     }
     body.dark header {
-      background: rgba(17, 25, 40, 0.65);
+      background: rgba(17,25,40,0.85);
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
     .brand h1 {
@@ -69,9 +57,7 @@
       font-family: "Playfair Display", serif;
       font-size: 1.6rem;
       font-weight: 700;
-      background: linear-gradient(90deg, #3b82f6, #6366f1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--accent);
     }
     nav {
       display: flex;
@@ -83,10 +69,10 @@
       font-weight: 600;
       padding: 6px 10px;
       border-radius: 6px;
-      transition: background 0.25s, color 0.25s;
+      transition: background 0.25s;
     }
     nav a:hover {
-      background: rgba(255,255,255,0.2);
+      background: rgba(37,99,235,0.1);
     }
 
     .controls {
@@ -99,92 +85,72 @@
       border-radius: 8px;
       font-weight: 700;
       cursor: pointer;
-      background: rgba(255,255,255,0.8);
-      color: var(--blue-mid);
+      background: var(--accent);
+      color: #fff;
       transition: transform 0.2s;
     }
     .btn:hover { transform: translateY(-2px); }
 
-    /* ======= Main ======= */
+    /* Main */
     main {
       max-width: 1100px;
-      margin: 32px auto;
+      margin: 40px auto;
       padding: 0 20px 60px;
     }
 
-    /* ======= Hero ======= */
-    .hero-card {
-      background: rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(18px);
-      border-radius: 20px;
-      padding: 36px;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255,255,255,0.3);
-    }
-    body.dark .hero-card {
-      background: rgba(17, 25, 40, 0.65);
+    /* Hero */
+    .hero {
+      text-align: center;
+      margin-bottom: 40px;
     }
     .hero h2 {
-      margin: 0 0 10px 0;
-      font-size: 2.4rem;
+      font-size: 2.2rem;
       font-family: "Playfair Display", serif;
-      background: linear-gradient(90deg, #3b82f6, #6366f1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 4px 12px rgba(99,102,241,0.25);
+      margin: 0 0 10px;
+      color: var(--accent);
     }
-    .hero p { color: var(--muted); }
+    .hero p {
+      color: var(--muted);
+      max-width: 700px;
+      margin: 0 auto;
+    }
 
-    /* ======= Cards ======= */
+    /* Cards */
     section.card {
-      position: relative;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(12px);
-      border: 2px solid transparent;
+      background: var(--bg-card);
+      border-radius: 12px;
       padding: 24px;
-      margin: 22px 0;
+      margin: 24px 0;
       box-shadow: var(--shadow);
-      overflow: hidden;
       transition: transform 0.3s, box-shadow 0.3s;
     }
-    section.card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      padding: 2px;
-      background: linear-gradient(135deg, #3b82f6, #6366f1, #1e40af);
-      -webkit-mask: 
-        linear-gradient(#fff 0 0) content-box, 
-        linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-    }
     section.card:hover {
-      transform: translateY(-4px) scale(1.01);
-      box-shadow: 0 12px 36px rgba(59,130,246,0.25);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(37,99,235,0.2);
     }
 
     .muted { color: var(--muted); }
     .legal-block {
-      border-left: 4px solid rgba(37,99,235,0.25);
+      border-left: 4px solid var(--accent);
       padding-left: 14px;
       margin-top: 12px;
     }
 
-    /* ======= Footer ======= */
+    /* Footer */
     footer {
-      background: linear-gradient(135deg, #1e3a8a, #2563eb, #3b82f6);
+      background: var(--accent);
       color: #fff;
       text-align: center;
       padding: 40px 20px;
-      border-top: 3px solid rgba(255,255,255,0.3);
-      box-shadow: 0 -8px 30px rgba(59,130,246,0.5);
+      margin-top: 40px;
     }
-    footer a { color: #cbd5e1; text-decoration: none; font-weight: 600; }
+    footer a {
+      color: #f1f5f9;
+      text-decoration: none;
+      font-weight: 600;
+    }
 
-    /* ======= Language helpers ======= */
+    /* Idioma */
     .lang { display: none; }
     .lang.active { display: block; }
 
@@ -208,21 +174,19 @@
   </header>
 
   <main>
-    <!-- HOME -->
-    <section id="home" class="hero-card">
-      <div class="hero">
-        <h2>
-          <span class="lang es active">Bienvenidos a HGC Informativo</span>
-          <span class="lang en">Welcome to HGC Informative</span>
-        </h2>
-        <p>
-          <span class="lang es active">Oficina de servicios administrativos en Florida — compromiso con transparencia y legalidad.</span>
-          <span class="lang en">Administrative services office in Florida — committed to transparency and legality.</span>
-        </p>
-      </div>
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <h2>
+        <span class="lang es active">Bienvenidos a HGC Informativo</span>
+        <span class="lang en">Welcome to HGC Informative</span>
+      </h2>
+      <p>
+        <span class="lang es active">Oficina de servicios administrativos en Florida — compromiso con transparencia y legalidad.</span>
+        <span class="lang en">Administrative services office in Florida — committed to transparency and legality.</span>
+      </p>
     </section>
 
-    <!-- INFORMATIVE -->
+    <!-- Informativo -->
     <section id="informativo" class="card" style="display:none;">
       <div class="lang es active">
         <h3>¿Quiénes Somos?</h3>
@@ -246,7 +210,7 @@
       </div>
     </section>
 
-    <!-- POLICIES -->
+    <!-- Políticas -->
     <section id="politicas" class="card" style="display:none;">
       <div class="lang es active">
         <h3>Office Policies – HGC</h3>
@@ -270,14 +234,11 @@
   </footer>
 
   <script>
-    // Navegación
     function showPage(id){
       document.querySelectorAll('main > section').forEach(s=>s.style.display='none');
       document.getElementById(id).style.display='block';
       history.replaceState(null,'','#'+id);
     }
-
-    // Dark/Light
     function toggleMode(){
       document.body.classList.toggle('dark');
       const isDark = document.body.classList.contains('dark');
@@ -288,8 +249,6 @@
       document.body.classList.add('dark');
       document.getElementById('modeBtn').textContent='☀️';
     }
-
-    // Idioma
     function setLanguage(lang){
       document.querySelectorAll('.lang').forEach(el=>{
         el.style.display = el.classList.contains(lang)?'block':'none';
@@ -301,8 +260,6 @@
       setLanguage(current==='es'?'en':'es');
     }
     setLanguage(localStorage.getItem('lang')||'es');
-
-    // Inicia en home
     const hash = window.location.hash.replace('#','');
     showPage(hash||'home');
   </script>
