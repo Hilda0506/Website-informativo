@@ -10,10 +10,12 @@
     :root {
       --blue: #4da6ff;   /* Azul clarito para light mode */
       --blue-dark: #0a1f44;
-      --bg-light: #ffffff;
-      --bg-dark: #1b1f2f; /* Azul gris oscuro elegante */
-      --text-light: #000000;
-      --text-dark: #e6e6e6;
+      --bg-light: #f2f7ff;
+      --bg-dark: #141a2b;
+      --text-light: #111111;
+      --text-dark: #eaeaea;
+      --card-light: rgba(255, 255, 255, 0.7);
+      --card-dark: #1e2538;
     }
 
     body {
@@ -22,14 +24,16 @@
       background: var(--bg-light);
       color: var(--text-light);
       transition: background 0.4s, color 0.4s;
+      background: linear-gradient(135deg, #eaf4ff, #ffffff);
+      background-attachment: fixed;
     }
 
-    /* DARK MODE */
+    /* Dark mode */
     body.dark {
-      background: var(--bg-dark);
+      background: linear-gradient(135deg, #0d1423, #1b1f2f);
       color: var(--text-dark);
 
-      --blue: #003c99;     /* Azul profundo en dark mode */
+      --blue: #0055cc;
       --blue-dark: #001a33;
     }
 
@@ -43,8 +47,9 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
-      transition: background 0.4s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
     }
 
     header h1 {
@@ -68,11 +73,12 @@
     .controls button {
       border: none;
       padding: 8px 14px;
-      border-radius: 8px;
+      border-radius: 12px;
       cursor: pointer;
       font-weight: bold;
       margin-left: 8px;
-      transition: background 0.4s;
+      transition: 0.3s;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
     }
 
     .toggle-mode {
@@ -95,32 +101,45 @@
     h2 {
       color: var(--blue);
       margin-bottom: 20px;
-      transition: color 0.4s;
     }
 
-    p {
+    /* Burbujas 3D */
+    .bubble {
+      background: var(--card-light);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 25px 30px;
+      margin: 25px 0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s;
+    }
+
+    body.dark .bubble {
+      background: var(--card-dark);
+      box-shadow: 6px 6px 15px #0c0f18, -6px -6px 15px #232b40;
+    }
+
+    .bubble:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+    }
+
+    p, li {
       line-height: 1.6;
-      margin: 10px 0;
     }
 
     ul {
-      text-align: left;
-      margin: 20px auto;
-      max-width: 900px;
       padding-left: 20px;
-    }
-
-    li {
-      margin-bottom: 12px;
     }
 
     footer {
       background: linear-gradient(90deg, var(--blue-dark), var(--blue));
       color: white;
       text-align: center;
-      padding: 30px 20px;
+      padding: 40px 20px;
       margin-top: 50px;
-      transition: background 0.4s;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
     }
 
     footer a {
@@ -152,89 +171,101 @@
 
   <!-- HOME -->
   <section id="home">
-    <h2 data-es="Bienvenidos a HGC Informativo" data-en="Welcome to HGC Informativo"></h2>
-    <p data-es="Ofrecemos servicios administrativos y notariales con transparencia, respeto y confianza." 
-       data-en="We provide administrative and notary services with transparency, respect, and trust."></p>
+    <div class="bubble">
+      <h2 data-es="Bienvenidos a HGC Informativo" data-en="Welcome to HGC Informativo"></h2>
+      <p data-es="Ofrecemos servicios administrativos y notariales con transparencia, respeto y confianza." 
+         data-en="We provide administrative and notary services with transparency, respect, and trust."></p>
+    </div>
   </section>
 
   <!-- INFORMATIVO -->
   <section id="info" style="display:none;">
-    <h2 data-es="¿Quiénes Somos?" data-en="Who We Are?"></h2>
-    <p data-es="HGC es una oficina de servicios administrativos que trabaja con transparencia, responsabilidad y apego a la ley. No somos abogados ni brindamos asesoría legal, pero apoyamos a nuestros clientes en la gestión documental y en trámites administrativos de manera clara y segura." 
-       data-en="HGC is an administrative services office that works with transparency, responsibility, and adherence to the law. We are not attorneys and do not provide legal advice, but we support our clients in document management and administrative procedures clearly and safely."></p>
+    <div class="bubble">
+      <h2 data-es="¿Quiénes Somos?" data-en="Who We Are?"></h2>
+      <p data-es="HGC es una oficina de servicios administrativos que trabaja con transparencia, responsabilidad y apego a la ley. No somos abogados ni brindamos asesoría legal, pero apoyamos a nuestros clientes en la gestión documental y en trámites administrativos de manera clara y segura." 
+         data-en="HGC is an administrative services office that works with transparency, responsibility, and adherence to the law. We are not attorneys and do not provide legal advice, but we support our clients in document management and administrative procedures clearly and safely."></p>
+    </div>
 
-    <h2 data-es="Misión" data-en="Mission"></h2>
-    <p data-es="Brindar servicios administrativos y notariales con total transparencia y respeto a la ley del Estado de Florida, garantizando seguridad y confianza en cada gestión." 
-       data-en="To provide administrative and notarial services with complete transparency and respect for Florida State law, ensuring security and trust in every process."></p>
+    <div class="bubble">
+      <h2 data-es="Misión" data-en="Mission"></h2>
+      <p data-es="Brindar servicios administrativos y notariales con total transparencia y respeto a la ley del Estado de Florida, garantizando seguridad y confianza en cada gestión." 
+         data-en="To provide administrative and notarial services with complete transparency and respect for Florida State law, ensuring security and trust in every process."></p>
+    </div>
 
-    <h2 data-es="Visión" data-en="Vision"></h2>
-    <p data-es="Consolidarnos como una oficina de referencia en Florida por nuestro compromiso con la legalidad, confidencialidad y protección al cliente." 
-       data-en="To become a reference office in Florida for our commitment to legality, confidentiality, and client protection."></p>
+    <div class="bubble">
+      <h2 data-es="Visión" data-en="Vision"></h2>
+      <p data-es="Consolidarnos como una oficina de referencia en Florida por nuestro compromiso con la legalidad, confidencialidad y protección al cliente." 
+         data-en="To become a reference office in Florida for our commitment to legality, confidentiality, and client protection."></p>
+    </div>
   </section>
 
-  <!-- POLÍTICAS (texto exacto que me diste) -->
+  <!-- POLÍTICAS -->
   <section id="policies" style="display:none;">
-    <h2>📌 Office Policies – HGC</h2>
-    <p>1. Transparency and Legality<br>
-    - HGC always acts in accordance with the laws of the State of Florida, including Chapter 117 Florida Statutes – Notaries Public.<br>
-    - Legal advice or immigration representation is not provided, as established by law.<br>
-    - All services are carried out transparently, with written records and clear receipts of the processes performed.</p>
+    <div class="bubble">
+      <h2>📌 Office Policies – HGC</h2>
+      <p>1. Transparency and Legality<br>
+      - HGC always acts in accordance with the laws of the State of Florida, including Chapter 117 Florida Statutes – Notaries Public.<br>
+      - Legal advice or immigration representation is not provided, as established by law.<br>
+      - All services are carried out transparently, with written records and clear receipts of the processes performed.</p>
 
-    <p>2. Delivery and Custody of Documents<br>
-    - All documents received will be delivered only to their rightful owner.<br>
-    - The office does not retain immigration or personal documents once they have been processed.<br>
-    - Upon request, clients may receive copies of the delivered documents for their records.<br>
-    - An administrative control file may be maintained only for administrative purposes and does not constitute undue retention.</p>
+      <p>2. Delivery and Custody of Documents<br>
+      - All documents received will be delivered only to their rightful owner.<br>
+      - The office does not retain immigration or personal documents once they have been processed.<br>
+      - Upon request, clients may receive copies of the delivered documents for their records.<br>
+      - An administrative control file may be maintained only for administrative purposes and does not constitute undue retention.</p>
 
-    <p>3. Client Communication<br>
-    - All clients must maintain active communication via email during ongoing processes.<br>
-    - Physical documents will only be sent through certified courier services (UPS or equivalent).<br>
-    - The client is responsible for covering shipping and handling costs.<br>
-    - The office is not responsible for delays caused by third parties (postal or courier services).</p>
+      <p>3. Client Communication<br>
+      - All clients must maintain active communication via email during ongoing processes.<br>
+      - Physical documents will only be sent through certified courier services (UPS or equivalent).<br>
+      - The client is responsible for covering shipping and handling costs.<br>
+      - The office is not responsible for delays caused by third parties (postal or courier services).</p>
 
-    <p>4. Customer Service and Non-Discrimination<br>
-    - This office maintains respectful, dignified, and professional treatment of all clients.<br>
-    - Discrimination is not permitted based on race, color, religion, sex, sexual orientation, nationality, age, disability, or immigration status.</p>
+      <p>4. Customer Service and Non-Discrimination<br>
+      - This office maintains respectful, dignified, and professional treatment of all clients.<br>
+      - Discrimination is not permitted based on race, color, religion, sex, sexual orientation, nationality, age, disability, or immigration status.</p>
 
-    <p>5. Fees and Charges<br>
-    - Notary fees will be charged in accordance with Florida State law.<br>
-    - Any additional services will be disclosed to the client before being provided.<br>
-    - A receipt will be issued for all services performed.</p>
+      <p>5. Fees and Charges<br>
+      - Notary fees will be charged in accordance with Florida State law.<br>
+      - Any additional services will be disclosed to the client before being provided.<br>
+      - A receipt will be issued for all services performed.</p>
 
-    <p>6. Security and Confidentiality<br>
-    - All information and documents received are handled under strict confidentiality.<br>
-    - This office is equipped with security cameras for the protection of clients and staff.<br>
-    - Threats, intimidation, or acts of violence will not be tolerated.</p>
+      <p>6. Security and Confidentiality<br>
+      - All information and documents received are handled under strict confidentiality.<br>
+      - This office is equipped with security cameras for the protection of clients and staff.<br>
+      - Threats, intimidation, or acts of violence will not be tolerated.</p>
 
-    <p>7. Protection Against Threats<br>
-    - The office is protected under:<br>
-    - Florida Statutes § 836.05 – Extortion/Threats</p>
+      <p>7. Protection Against Threats<br>
+      - The office is protected under:<br>
+      - Florida Statutes § 836.05 – Extortion/Threats</p>
+    </div>
 
-    <h2>📌 Legal Notice for Office Display</h2>
-    <h3>📌 Important</h3>
-    <p>I AM NOT AN ATTORNEY LICENSED TO PRACTICE LAW. I MAY NOT GIVE LEGAL ADVICE OR ACCEPT FEES FOR LEGAL ADVICE. I AM NOT ACCREDITED TO REPRESENT YOU IN IMMIGRATION MATTERS.</p>
+    <div class="bubble">
+      <h2>📌 Legal Notice for Office Display</h2>
+      <h3>📌 Important</h3>
+      <p>I AM NOT AN ATTORNEY LICENSED TO PRACTICE LAW. I MAY NOT GIVE LEGAL ADVICE OR ACCEPT FEES FOR LEGAL ADVICE. I AM NOT ACCREDITED TO REPRESENT YOU IN IMMIGRATION MATTERS.</p>
 
-    <h3>📌 Legal Protection</h3>
-    <p>This office is protected under the following laws:<br>
-    - Florida Statutes Chapter 117 – Notaries Public (Regulation of notaries).<br>
-    - Florida Statutes § 836.05 – Extortion/Threats (Prohibits threats and extortion).<br>
-    - Florida Statutes § 784.048 – Stalking / Harassment (Covers harassment, stalking, and repeated threats, including electronic communications).<br>
-    - First Amendment & Due Process – U.S. Constitution (Protection against unfounded accusations and the right to due process).<br>
-    Any written threat, email, or message may be retained and used as legal evidence.</p>
+      <h3>📌 Legal Protection</h3>
+      <p>This office is protected under the following laws:<br>
+      - Florida Statutes Chapter 117 – Notaries Public (Regulation of notaries).<br>
+      - Florida Statutes § 836.05 – Extortion/Threats (Prohibits threats and extortion).<br>
+      - Florida Statutes § 784.048 – Stalking / Harassment (Covers harassment, stalking, and repeated threats, including electronic communications).<br>
+      - First Amendment & Due Process – U.S. Constitution (Protection against unfounded accusations and the right to due process).<br>
+      Any written threat, email, or message may be retained and used as legal evidence.</p>
 
-    <h3>📌 Document Policy</h3>
-    <p>- All documents received will be delivered only to their rightful owner.<br>
-    - This office does not retain immigration or personal documents once they have been notified to the client.<br>
-    - Clients may request a copy of delivered documents at any time.</p>
+      <h3>📌 Document Policy</h3>
+      <p>- All documents received will be delivered only to their rightful owner.<br>
+      - This office does not retain immigration or personal documents once they have been notified to the client.<br>
+      - Clients may request a copy of delivered documents at any time.</p>
 
-    <h3>📌 Fees</h3>
-    <p>Notary services are charged in accordance with Florida State law. (Fee schedule available upon request).</p>
+      <h3>📌 Fees</h3>
+      <p>Notary services are charged in accordance with Florida State law. (Fee schedule available upon request).</p>
 
-    <h3>📌 Equal Opportunity Commitment</h3>
-    <p>This office does not discriminate on the basis of: race, color, religion, sex, national origin, age, disability, or immigration status.</p>
+      <h3>📌 Equal Opportunity Commitment</h3>
+      <p>This office does not discriminate on the basis of: race, color, religion, sex, national origin, age, disability, or immigration status.</p>
 
-    <h3>📌 Security</h3>
-    <p>This office is under video surveillance for the protection of clients and staff.</p>
+      <h3>📌 Security</h3>
+      <p>This office is under video surveillance for the protection of clients and staff.</p>
+    </div>
   </section>
 
   <!-- FOOTER -->
