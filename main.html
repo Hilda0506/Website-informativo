@@ -5,17 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HGC Informativo</title>
   <style>
-    /* --------- FUENTES Y ESTILOS BASE --------- */
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 
     :root {
-      --primary-light: #e6f0ff;
-      --primary-blue: #1e90ff;
-      --primary-dark: #0a1f44;
-      --text-light: #000;
-      --text-dark: #fff;
-      --bg-light: #fff;
+      --blue-light: #e6f0ff;
+      --blue: #1e90ff;
+      --blue-dark: #0a1f44;
+      --bg-light: #ffffff;
       --bg-dark: #121212;
+      --text-light: #000000;
+      --text-dark: #ffffff;
     }
 
     body {
@@ -23,7 +22,7 @@
       margin: 0;
       background: var(--bg-light);
       color: var(--text-light);
-      transition: all 0.4s ease;
+      transition: background 0.4s, color 0.4s;
     }
 
     body.dark {
@@ -32,78 +31,92 @@
     }
 
     header {
+      background: linear-gradient(90deg, var(--blue), var(--blue-dark));
+      color: white;
+      padding: 20px 40px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: linear-gradient(90deg, var(--primary-blue), var(--primary-dark));
-      padding: 15px 30px;
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
 
-    header img {
-      height: 50px;
-      cursor: pointer;
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      font-weight: 800;
     }
 
     nav a {
       margin: 0 15px;
       text-decoration: none;
-      color: #fff;
+      color: white;
       font-weight: 600;
       transition: 0.3s;
     }
 
     nav a:hover {
-      color: var(--primary-light);
+      color: var(--blue-light);
     }
 
-    .controls {
-      display: flex;
-      gap: 10px;
-    }
-
-    button {
+    .controls button {
       border: none;
-      padding: 8px 12px;
+      padding: 8px 14px;
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
+      margin-left: 8px;
+      transition: 0.3s;
     }
 
     .toggle-mode {
-      background: var(--primary-blue);
+      background: var(--blue);
       color: white;
     }
 
     .toggle-lang {
-      background: var(--primary-dark);
+      background: var(--blue-dark);
       color: white;
     }
 
     section {
       padding: 60px 20px;
-      text-align: center;
-      animation: fadeIn 1.2s ease-in-out;
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeIn 1s ease;
     }
 
-    h1 {
-      font-size: 2.5rem;
-      color: var(--primary-blue);
+    h2 {
+      color: var(--blue);
+      margin-bottom: 20px;
+    }
+
+    p {
+      line-height: 1.6;
+      margin: 10px 0;
+    }
+
+    ul {
+      text-align: left;
+      margin: 20px auto;
+      max-width: 800px;
+      padding-left: 20px;
     }
 
     footer {
-      background: linear-gradient(90deg, var(--primary-dark), var(--primary-blue));
+      background: linear-gradient(90deg, var(--blue-dark), var(--blue));
       color: white;
       text-align: center;
       padding: 30px 20px;
+      margin-top: 50px;
     }
 
     footer a {
-      color: #fff;
-      text-decoration: none;
+      color: white;
       font-weight: bold;
+      text-decoration: none;
     }
 
     @keyframes fadeIn {
@@ -115,7 +128,7 @@
 <body>
   <!-- HEADER -->
   <header>
-    <img src="logo.png" alt="HGC Logo" onclick="showSection('home')">
+    <h1>HGC Informativo</h1>
     <nav>
       <a href="#" onclick="showSection('home')">Home</a>
       <a href="#" onclick="showSection('info')">Informativo</a>
@@ -127,59 +140,85 @@
     </div>
   </header>
 
-  <!-- SECCIONES -->
+  <!-- HOME -->
   <section id="home">
-    <h1 data-es="Bienvenidos a HGC Informativo" data-en="Welcome to HGC Informativo"></h1>
-    <p data-es="Ofrecemos servicios administrativos y notariales con transparencia y confianza." 
-       data-en="We provide administrative and notary services with transparency and trust."></p>
-    <img src="banner.jpg" alt="Banner" style="width:80%; border-radius:20px; margin-top:20px; opacity:0.9;">
+    <h2 data-es="Bienvenidos a HGC Informativo" data-en="Welcome to HGC Informativo"></h2>
+    <p data-es="Ofrecemos servicios administrativos y notariales con transparencia, respeto y confianza." 
+       data-en="We provide administrative and notary services with transparency, respect, and trust."></p>
   </section>
 
+  <!-- INFORMATIVO -->
   <section id="info" style="display:none;">
-    <h1 data-es="Página Informativa – HGC" data-en="Informative Page – HGC"></h1>
-    <p data-es="¿Quiénes Somos? HGC es una oficina de servicios administrativos..." 
-       data-en="Who are we? HGC is an administrative services office..."></p>
-    <!-- Aquí va todo el texto largo (Misión, Visión, Políticas, Avisos) -->
+    <h2 data-es="¿Quiénes Somos?" data-en="Who We Are?"></h2>
+    <p data-es="HGC es una oficina de servicios administrativos que trabaja con transparencia, responsabilidad y apego a la ley. No somos abogados ni brindamos asesoría legal, pero apoyamos a nuestros clientes en la gestión documental y en trámites administrativos de manera clara y segura." 
+       data-en="HGC is an administrative services office that works with transparency, responsibility, and adherence to the law. We are not attorneys and do not provide legal advice, but we support our clients in document management and administrative procedures clearly and safely."></p>
+
+    <h2 data-es="Misión" data-en="Mission"></h2>
+    <p data-es="Brindar servicios administrativos y notariales con total transparencia y respeto a la ley del Estado de Florida, garantizando seguridad y confianza en cada gestión." 
+       data-en="To provide administrative and notarial services with complete transparency and respect for Florida State law, ensuring security and trust in every process."></p>
+
+    <h2 data-es="Visión" data-en="Vision"></h2>
+    <p data-es="Consolidarnos como una oficina de referencia en Florida por nuestro compromiso con la legalidad, confidencialidad y protección al cliente." 
+       data-en="To become a reference office in Florida for our commitment to legality, confidentiality, and client protection."></p>
   </section>
 
+  <!-- POLÍTICAS -->
   <section id="policies" style="display:none;">
-    <h1 data-es="Nuestras Políticas" data-en="Our Policies"></h1>
-    <p data-es="Comunicación, entrega de documentos, trato al cliente..." 
-       data-en="Communication, document delivery, customer service..."></p>
-    <!-- Aquí agregamos todo el contenido detallado de las políticas -->
+    <h2>📌 Office Policies – HGC</h2>
+    <ul>
+      <li><b>Transparency and Legality</b>: HGC acts in accordance with Florida law, including Chapter 117 Florida Statutes – Notaries Public. No legal advice or immigration representation is provided.</li>
+      <li><b>Delivery and Custody of Documents</b>: Documents are only delivered to their rightful owner. No retention of immigration or personal documents once processed.</li>
+      <li><b>Client Communication</b>: Active email communication required. Physical documents only sent via certified courier (UPS or equivalent).</li>
+      <li><b>Customer Service and Non-Discrimination</b>: All clients are treated respectfully, without discrimination.</li>
+      <li><b>Fees and Charges</b>: Fees follow Florida law. Receipts are issued for every service.</li>
+      <li><b>Security and Confidentiality</b>: All information is handled with confidentiality. Office has security cameras. Threats or violence are not tolerated.</li>
+      <li><b>Protection Against Threats</b>: Protected under Florida Statutes §836.05 – Extortion/Threats.</li>
+    </ul>
+
+    <h2>📌 Legal Notice</h2>
+    <p><b>Important:</b> I AM NOT AN ATTORNEY LICENSED TO PRACTICE LAW. I MAY NOT GIVE LEGAL ADVICE OR ACCEPT FEES FOR LEGAL ADVICE. I AM NOT ACCREDITED TO REPRESENT YOU IN IMMIGRATION MATTERS.</p>
+
+    <h2>📌 Legal Protection</h2>
+    <p>This office is protected under Florida Statutes Chapter 117 (Notaries Public), §836.05 (Extortion/Threats), §784.048 (Stalking/Harassment), and the U.S. Constitution (First Amendment & Due Process).</p>
+
+    <h2>📌 Document Policy</h2>
+    <p>Documents are only delivered to their rightful owner. No retention of immigration or personal documents once processed. Copies may be requested at any time.</p>
+
+    <h2>📌 Fees</h2>
+    <p>Notary services are charged according to Florida State law (fee schedule available upon request).</p>
+
+    <h2>📌 Equal Opportunity Commitment</h2>
+    <p>No discrimination based on race, color, religion, sex, national origin, age, disability, or immigration status.</p>
+
+    <h2>📌 Security</h2>
+    <p>The office is under video surveillance for the protection of clients and staff.</p>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p><strong>📱 Instagram:</strong> <a href="https://instagram.com/serviceshilda">@serviceshilda</a></p>
-    <p><strong>📧 Email:</strong> serviceshilda@gmail.com</p>
-    <p><strong>📞 Teléfono:</strong> 7868731859</p>
-    <p><strong>📍 Dirección:</strong> 1651 W 37th St Unidad 410 Hialeah, FL 33012</p>
+    <p><b>📱 Instagram:</b> <a href="https://instagram.com/serviceshilda">@serviceshilda</a></p>
+    <p><b>📧 Email:</b> serviceshilda@gmail.com</p>
+    <p><b>📞 Teléfono:</b> 7868731859</p>
+    <p><b>📍 Dirección:</b> 1651 W 37th St Unidad 410 Hialeah, FL 33012</p>
     <p>© 2025 HGC Informativo - Todos los derechos reservados</p>
   </footer>
 
   <script>
-    let darkMode = false;
     let lang = "es";
-
     function toggleMode() {
       document.body.classList.toggle("dark");
-      darkMode = !darkMode;
     }
-
     function toggleLang() {
       lang = (lang === "es") ? "en" : "es";
       document.querySelectorAll("[data-es]").forEach(el => {
         el.textContent = el.getAttribute(`data-${lang}`);
       });
     }
-
     function showSection(id) {
       document.querySelectorAll("section").forEach(sec => sec.style.display = "none");
       document.getElementById(id).style.display = "block";
     }
-
-    // Inicializar idioma por defecto
+    // Iniciar en español
     toggleLang(); toggleLang();
   </script>
 </body>
