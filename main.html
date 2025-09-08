@@ -4,24 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HGC Informativo</title>
-  <!-- Fuente moderna -->
+  <!-- Fuente profesional -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --blue-light: #e0f2fe;
-      --blue: #2563eb;
-      --blue-dark: #1e3a8a;
+      /* Light mode */
+      --blue-light: #dbeafe;
+      --blue: #3b82f6;
+      --blue-accent: #60a5fa;
       --text-light: #1e293b;
-      --text-dark: #f1f5f9;
       --bg-light: #ffffff;
+
+      /* Dark mode */
+      --blue-dark: #1e3a8a;
+      --blue-deep: #1d4ed8;
+      --blue-glow: #2563eb;
+      --text-dark: #f1f5f9;
       --bg-dark: #0f172a;
     }
+
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
       background: var(--bg-light);
       color: var(--text-light);
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
     }
     body.dark {
       background: var(--bg-dark);
@@ -34,12 +41,16 @@
       align-items: center;
       justify-content: space-between;
       padding: 15px 40px;
-      background: linear-gradient(90deg, var(--blue) 0%, var(--blue-dark) 100%);
-      color: white;
+      background: linear-gradient(90deg, var(--blue) 0%, var(--blue-accent) 100%);
+      transition: background 0.4s ease;
+    }
+    body.dark header {
+      background: linear-gradient(90deg, var(--blue-dark) 0%, var(--blue-glow) 100%);
     }
     header img {
-      height: 55px;
+      height: 60px;
       cursor: pointer;
+      object-fit: contain;
     }
     nav a {
       margin: 0 15px;
@@ -55,15 +66,19 @@
       margin-left: 10px;
       padding: 6px 12px;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       background: white;
-      color: var(--blue-dark);
+      color: var(--blue);
       font-weight: bold;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: all 0.3s;
     }
     .controls button:hover {
       background: var(--blue-light);
+    }
+    body.dark .controls button {
+      background: var(--blue-dark);
+      color: white;
     }
 
     /* MAIN */
@@ -74,46 +89,56 @@
     }
     section {
       display: none;
-      animation: fadeIn 0.5s;
+      animation: fadeIn 0.6s;
     }
     section.active {
       display: block;
     }
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
+      from { opacity: 0; transform: translateY(15px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     h1, h2, h3 {
       font-weight: 800;
-      color: var(--blue-dark);
     }
-    body.dark h1, body.dark h2, body.dark h3 {
-      color: #93c5fd;
-    }
+    h1 { font-size: 2.5em; }
+    h2 { color: var(--blue); }
+    body.dark h2 { color: var(--blue-glow); }
 
     .card {
       background: var(--blue-light);
-      border-radius: 12px;
-      padding: 20px;
+      border-radius: 15px;
+      padding: 25px;
       margin: 20px 0;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
     }
     body.dark .card {
       background: #1e293b;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
     }
 
     /* FOOTER */
     footer {
-      background: var(--blue-dark);
+      background: var(--blue-accent);
       color: white;
       text-align: center;
       padding: 30px 20px;
-      margin-top: 50px;
+      margin-top: 60px;
+      transition: background 0.4s ease;
+    }
+    body.dark footer {
+      background: var(--blue-dark);
     }
     footer a {
-      color: #93c5fd;
+      color: #e0f2fe;
       text-decoration: none;
+      font-weight: 600;
     }
     footer a:hover {
       text-decoration: underline;
@@ -203,7 +228,7 @@
         el.textContent = el.getAttribute("data-" + lang);
       });
     }
-    toggleLanguage(); // set default ES
+    toggleLanguage(); 
     toggleLanguage(); 
   </script>
 </body>
